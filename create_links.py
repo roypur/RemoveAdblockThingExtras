@@ -17,14 +17,14 @@ def print_main():
         print("Failed to get commit hash")
 
     print(
-        f"\nhttps://github.com/TheRealJoelmatic/RemoveAdblockThing/raw/{commit_hash}/Youtube-Ad-blocker-Reminder-Remover.user.js\n"
+        f"\nhttps://github.com/TheRealJoelmatic/RemoveAdblockThing/raw/{commit_hash}/Youtube-Ad-blocker-Reminder-Remover.user.js"
     )
 
 def print_extras():
     commit_hash: Optional[str] = None
     try:
         resp = requests.get(
-            "https://api.github.com/repos/roypur/RemoveAdblockThingExtras/commits/main",
+            "https://api.github.com/repos/roypur/RemoveAdblockThingExtras/commits/master",
             timeout=5,
         )
         data = resp.json()
@@ -34,10 +34,12 @@ def print_extras():
         print("Failed to get commit hash")
 
     print(
-        f"\nhttps://github.com/roypur/RemoveAdblockThingExtras/raw/{commit_hash}/extras.user.js\n"
+        f"\nhttps://github.com/roypur/RemoveAdblockThingExtras/raw/{commit_hash}/extras.user.js"
     )
 
 
 
 if __name__ == "__main__":
-    main()
+    print_main()
+    print_extras()
+    print()
