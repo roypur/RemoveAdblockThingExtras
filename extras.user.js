@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Adblock Thing Extras
 // @namespace    http://tampermonkey.net/
-// @version      103
+// @version      104
 // @description  Removes Adblock Thing Extras
 // @author       roypur
 // @match        https://www.youtube.com/*
@@ -49,7 +49,7 @@
   if (window.location.pathname.startsWith("/shorts/")) {
     const splitted = window.location.pathname.split("/");
     if (splitted.length == 3) {
-      window.location.replace(`https://www.youtube.com/watch?v=${splitted[2]}`);
+      console.log(`will redirect to: https://www.youtube.com/watch?v=${splitted[2]}`);
     }
   }
 
