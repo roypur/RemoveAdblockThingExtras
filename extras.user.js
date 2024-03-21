@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Adblock Thing Extras
 // @namespace    http://tampermonkey.net/
-// @version      101
+// @version      102
 // @description  Removes Adblock Thing Extras
 // @author       roypur
 // @match        https://www.youtube.com/*
@@ -14,34 +14,42 @@
 (() => {
   const removeAdblockThingExtras = () => {
     for (const elem of document.getElementsByTagName(
-      "ytd-statement-banner-renderer"
+      "ytd-statement-banner-renderer",
     )) {
       elem.remove();
     }
 
     for (const elem of document.getElementsByClassName(
-      "ytd-statement-banner-renderer"
+      "ytd-statement-banner-renderer",
     )) {
       elem.remove();
     }
 
     for (const elem of document.getElementsByTagName(
-      "tp-yt-iron-overlay-backdrop"
+      "tp-yt-iron-overlay-backdrop",
     )) {
       elem.remove();
     }
 
     for (const elem of document.getElementsByClassName(
-      "tp-yt-iron-overlay-backdrop"
+      "tp-yt-iron-overlay-backdrop",
     )) {
       elem.remove();
     }
 
     for (const elem of document.getElementsByTagName(
-      "ytd-rich-item-renderer"
+      "ytd-rich-item-renderer",
     )) {
       if (elem.getElementsByTagName("ytd-ad-slot-renderer").length > 0) {
         elem.remove();
+      }
+    }
+    if (window.location.pathname.startsWith("/shorts/")) {
+      const splitted = window.location.pathname.split("/");
+      if (splitted.length == 3) {
+        window.location.replace(
+          `https://www.youtube.com/watch?v=${splitted[2]}`,
+        );
       }
     }
   };
