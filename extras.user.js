@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Adblock Thing Extras
 // @namespace    http://tampermonkey.net/
-// @version      102
+// @version      103
 // @description  Removes Adblock Thing Extras
 // @author       roypur
 // @match        https://www.youtube.com/*
@@ -44,15 +44,14 @@
         elem.remove();
       }
     }
-    if (window.location.pathname.startsWith("/shorts/")) {
-      const splitted = window.location.pathname.split("/");
-      if (splitted.length == 3) {
-        window.location.replace(
-          `https://www.youtube.com/watch?v=${splitted[2]}`,
-        );
-      }
-    }
   };
+
+  if (window.location.pathname.startsWith("/shorts/")) {
+    const splitted = window.location.pathname.split("/");
+    if (splitted.length == 3) {
+      window.location.replace(`https://www.youtube.com/watch?v=${splitted[2]}`);
+    }
+  }
 
   setInterval(removeAdblockThingExtras, 50);
 })();
