@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Adblock Thing Extras
 // @namespace    http://tampermonkey.net/
-// @version      113
+// @version      114
 // @description  Removes Adblock Thing Extras
 // @author       roypur
 // @match        https://www.youtube.com/*
@@ -28,6 +28,7 @@
         newElement.href = `https://youtube.com/watch?v=${videoId}`;
         newElement.className = elem.className;
         newElement.id = elem.id;
+        newElement.ariaLabel = elem.ariaLabel;
 
         while (elem.childNodes.length > 0) {
           newElement.appendChild(elem.childNodes[0]);
