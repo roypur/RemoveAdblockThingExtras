@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Adblock Thing Extras
 // @namespace    http://tampermonkey.net/
-// @version      107
+// @version      108
 // @description  Removes Adblock Thing Extras
 // @author       roypur
 // @match        https://www.youtube.com/*
@@ -21,6 +21,10 @@
 
     for (const elem of document.getElementsByTagName("a")) {
       const splitted = elem.href.split("/");
+      if (elem.href.includes("shorts")) {
+        console.log(elem.href);
+      }
+
       if (splitted.length == 3 && splitted[1] == "shorts") {
         const videoId = splitted[2];
         console.log(videoId);
