@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Adblock Thing Extras
 // @namespace    http://tampermonkey.net/
-// @version      114
+// @version      115
 // @description  Removes Adblock Thing Extras
 // @author       roypur
 // @match        https://www.youtube.com/*
@@ -23,18 +23,7 @@
       const splitted = elem.href.split("/");
       if (splitted.length >= 2 && splitted[splitted.length - 2] == "shorts") {
         const videoId = splitted[splitted.length - 1];
-
-        const newElement = document.createElement("a");
-        newElement.href = `https://youtube.com/watch?v=${videoId}`;
-        newElement.className = elem.className;
-        newElement.id = elem.id;
-        newElement.ariaLabel = elem.ariaLabel;
-
-        while (elem.childNodes.length > 0) {
-          newElement.appendChild(elem.childNodes[0]);
-        }
-
-        elem.replaceWith(newElement);
+        elem.href = `https://youtube.com/watch?v=${videoId}`;
       }
     }
 
