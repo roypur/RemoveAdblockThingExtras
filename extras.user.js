@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Adblock Thing Extras
 // @namespace    http://tampermonkey.net/
-// @version      108
+// @version      109
 // @description  Removes Adblock Thing Extras
 // @author       roypur
 // @match        https://www.youtube.com/*
@@ -21,14 +21,9 @@
 
     for (const elem of document.getElementsByTagName("a")) {
       const splitted = elem.href.split("/");
-      if (elem.href.includes("shorts")) {
-        console.log(elem.href);
-      }
-
-      if (splitted.length == 3 && splitted[1] == "shorts") {
-        const videoId = splitted[2];
-        console.log(videoId);
-        elem.href = `https://youtu.be/${videoId}`;
+      if (splitted.length >= 2 && splitted[splitted.length - 2] == "shorts") {
+        const videoId = splitted[splitted.length - 1];
+        elem.href = `https://youtube.com/watch?v=/${videoId}`;
       }
     }
 
