@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Adblock Thing Extras
 // @namespace    http://tampermonkey.net/
-// @version      112
+// @version      113
 // @description  Removes Adblock Thing Extras
 // @author       roypur
 // @match        https://www.youtube.com/*
@@ -29,7 +29,7 @@
         newElement.className = elem.className;
         newElement.id = elem.id;
 
-        while (oldParent.childNodes.length > 0) {
+        while (elem.childNodes.length > 0) {
           newElement.appendChild(elem.childNodes[0]);
         }
 
