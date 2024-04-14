@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Adblock Thing Extras
 // @namespace    http://tampermonkey.net/
-// @version      116
+// @version      117
 // @description  Removes Adblock Thing Extras
 // @author       roypur
 // @match        https://www.youtube.com/*
@@ -58,8 +58,10 @@
 
   window.addEventListener("urlchange", (ev) => {
     const splitted = ev.url.split("/");
+    console.log("url changed event");
     if (splitted.length >= 2 && splitted[splitted.length - 2] == "shorts") {
       const videoId = splitted[splitted.length - 1];
+      console.log("url changed event (with shorts url)");
       window.location.replace(`https://youtube.com/watch?v=${videoId}`);
     }
   });
