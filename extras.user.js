@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Adblock Thing Extras
 // @namespace    http://tampermonkey.net/
-// @version      118
+// @version      119
 // @description  Removes Adblock Thing Extras
 // @author       roypur
 // @match        https://www.youtube.com/*
@@ -65,4 +65,5 @@
   };
 
   setInterval(removeAdblockThingExtras, 50);
+  console.log("page loaded");
 })();
