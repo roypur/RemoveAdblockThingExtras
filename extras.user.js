@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Adblock Thing Extras
 // @namespace    http://tampermonkey.net/
-// @version      121
+// @version      122
 // @description  Removes Adblock Thing Extras
 // @author       roypur
 // @match        https://www.youtube.com/*
@@ -59,6 +59,9 @@
       "ytd-rich-item-renderer"
     )) {
       if (elem.getElementsByTagName("ytd-ad-slot-renderer").length > 0) {
+        elem.remove();
+      }
+      if (elem.querySelector('[aria-label="Featured"]')) {
         elem.remove();
       }
     }
