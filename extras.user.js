@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Adblock Thing Extras
 // @namespace    http://tampermonkey.net/
-// @version      122
+// @version      123
 // @description  Removes Adblock Thing Extras
 // @author       roypur
 // @match        https://www.youtube.com/*
@@ -41,6 +41,14 @@
       "ytd-statement-banner-renderer"
     )) {
       elem.remove();
+    }
+
+    for (const elem of document.getElementsByTagName(
+      "ytd-rich-section-renderer"
+    )) {
+      if (elem.getElementById("paygated-featured-badge")) {
+        elem.remove();
+      }
     }
 
     for (const elem of document.getElementsByTagName(
